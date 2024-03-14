@@ -1,0 +1,8 @@
+{
+  "OutputFoldersPerTargetSystem": {
+    "Local Machine": [
+      "flatbuffers\\out\\build\\x64-Debug",
+      "flatbuffers\\out\\install\\x64-Debug"
+    ]
+  }
+}

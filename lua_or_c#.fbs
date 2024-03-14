@@ -1,0 +1,34 @@
+// Example IDL Lua file for our monster's schema.
+// Command line: ./flatbuffers/out/build/x64-Debug/flatc --lua lua.fbs
+ 
+namespace MyGame.Sample;
+ 
+enum Color:byte { Red = 0, Green, Blue = 2 }
+ 
+union Equipment { Function1, Object1} // Array of table objects.
+ 
+struct Vec3 {
+  x:float;
+  y:float;
+  z:float;
+}
+ 
+table Function1 {
+  pos:Vec3; // Struct.
+  mana:short = 150;
+  hp:short = 100;
+  name:string;
+  friendly:bool = false (deprecated);
+  inventory:[ubyte];  // Vector of scalars.
+  color:Color = Blue; // Enum.
+  weapons:[Object1];   // Vector of tables.
+  equipped:Equipment; // Union.
+  path:[Vec3];        // Vector of structs.
+}
+ 
+table Object1 {
+  name:string;
+  damage:short;
+}
+ 
+root_type Function1;
